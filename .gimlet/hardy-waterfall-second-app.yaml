@@ -1,0 +1,18 @@
+app: second-app
+env: hardy-waterfall
+namespace: default
+chart:
+  repository: https://chart.onechart.dev
+  name: onechart
+  version: 0.64.0
+values:
+  containerPort: 3000
+  gitRepository: mattdb/expressjs-test-app
+  gitSha: '{{ .SHA }}'
+  image:
+    repository: 127.0.0.1:32447/expressjs-test-app-b1b4
+    tag: '{{ .SHA }}'
+  imagePullSecrets: []
+  replicas: 1
+  resources:
+    ignoreLimits: true
