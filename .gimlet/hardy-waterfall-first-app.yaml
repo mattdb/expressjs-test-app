@@ -1,0 +1,25 @@
+app: first-app
+env: hardy-waterfall
+namespace: default
+chart:
+  repository: https://chart.onechart.dev
+  name: onechart
+  version: 0.64.0
+values:
+  containerPort: 80
+  gitRepository: mattdb/expressjs-test-app
+  gitSha: '{{ .SHA }}'
+  image:
+    repository: nginx
+    tag: 1.19.3
+  imagePullSecrets: []
+  replicas: 2
+  resources:
+    ignore: false
+    ignoreLimits: false
+    limits:
+      cpu: 200m
+      memory: 200Mi
+    requests:
+      cpu: 200m
+      memory: 200Mi
